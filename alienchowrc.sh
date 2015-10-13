@@ -16,7 +16,7 @@ get_git_branch() {
 }
 
 get_git_changes() {
-	CHANGES=$(git status 2> /dev/null | grep -e "^Changes not staged for commit:\|^Untracked files")
+	CHANGES=$(git status 2> /dev/null | grep -e "^Changes not staged for commit:\|^Untracked files:\|Changes to be committed:")
 	if [[ -n "$CHANGES" ]]; then echo "*"; fi
 }
 
@@ -26,6 +26,10 @@ export PS1="[\[\e[31m\]\u\[\e[m\]@\[\e[1;31m\]\h\[\e[m\]:\W]\[\e[1;32m\]\$(get_g
 # GIT TWEAKS #
 # ========== #
 git config --global core.excludesfile '~/.gitignore'
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status
 
 # ===================== #
 # ENVIRONMENT VARIABLES #
