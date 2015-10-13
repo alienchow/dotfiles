@@ -36,3 +36,14 @@ filetype plugin indent on
 " Plugin Configurations "
 " ===================== "
 :au VimEnter *  NERDTree " NERDTree auto open
+
+" ============  "
+" KEY MAPPINGS "
+" ============  "
+set backspace=indent,eol,start
+nmap <F2> :GoRename<CR>
+imap <F2> <ESC>:GoRename<CR>
+nmap <F3> :GoReferrers<CR>
+imap <F3> <ESC>:GoReferrers<CR>a
+map <F4> :GoImplements<CR>
+imap <F4> <ESC>:GoImplements<CR>a
