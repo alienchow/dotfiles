@@ -35,7 +35,7 @@ filetype plugin indent on
 " ===================== "
 " Plugin Configurations "
 " ===================== "
-:au VimEnter *  NERDTree " NERDTree auto open
+autocmd VimEnter * NERDTree | wincmd p " NERDTree autoload and cursor to text file
 
 " ========================= "
 " VIM CURSOR CONFIGURATIONS "
