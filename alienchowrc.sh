@@ -10,7 +10,6 @@ alias ll='ls -al'
 # ============ #
 get_git_branch() {
 	BRANCH=$(git branch 2> /dev/null | grep "^* .\+$" | sed "s/^* //")
-	OUTPUT=
 	if [[ -n "$BRANCH" ]]; then OUTPUT="$BRANCH"; fi
 	if [[ -n "$OUTPUT" ]]; then echo "($OUTPUT)"; fi
 }
