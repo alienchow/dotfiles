@@ -36,4 +36,5 @@ git config --global alias.st status
 # ===================== #
 export GOPATH="~/go"
 export GOROOT="/usr/local/go"
+export GOROOT_BOOTSTRAP="/usr/local/go1.4.2"
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
