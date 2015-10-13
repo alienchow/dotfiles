@@ -33,7 +33,7 @@ git config --global alias.st status
 # ===================== #
 # ENVIRONMENT VARIABLES #
 # ===================== #
-export GOPATH="~/go"
+export GOPATH="$(pushd ~ 1> /dev/null && pwd && popd 1> /dev/null)/go"
 export GOROOT="/usr/local/go"
 export GOROOT_BOOTSTRAP="/usr/local/go1.4.2"
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin

@@ -41,9 +41,21 @@ filetype plugin indent on
 " KEY MAPPINGS "
 " ============  "
 set backspace=indent,eol,start
+
+" =============== "
+" GOLANG SETTINGS "
+" =============== "
 nmap <F2> :GoRename<CR>
 imap <F2> <ESC>:GoRename<CR>
 nmap <F3> :GoReferrers<CR>
 imap <F3> <ESC>:GoReferrers<CR>a
 map <F4> :GoImplements<CR>
 imap <F4> <ESC>:GoImplements<CR>a
+map <F5> :GoCallees<CR>
+imap <F5> <ESC>:GoCallees<CR>a
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
