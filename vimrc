@@ -37,6 +37,7 @@ Plugin 'VundleVim/Vundle.vim'
 " ------------------- "
 Plugin 'bling/vim-airline'
 Plugin 'fatih/vim-go'
+Plugin 'jszakmeister/vim-togglecursor'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
