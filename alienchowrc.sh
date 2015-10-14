@@ -41,7 +41,7 @@ alias ll='ls -al'
 get_git_branch() {
 	BRANCH=$(git branch 2> /dev/null | grep "^* .\+$" | sed "s/^* //")
 	if [[ -n "$BRANCH" ]]; then OUTPUT="$BRANCH"; fi
-	if [[ -n "$OUTPUT" ]]; then echo "($OUTPUT)"; fi
+	if [[ -n "$OUTPUT" ]]; then echo " ($OUTPUT)"; fi
 }
 
 get_git_changes() {
@@ -49,7 +49,7 @@ get_git_changes() {
 	if [[ -n "$CHANGES" ]]; then echo "*"; fi
 }
 
-export PS1="[\[\e[36m\]\u\[\e[0m\]@\[\e[31m\]\h\[\e[0m\] \W\[\e[1;32m\] $(get_git_branch)\[\e[1;37m\]\$(get_git_changes)\[\e[0m\]]\$ "
+export PS1="[\[\e[36m\]\u\[\e[0m\]@\[\e[31m\]\h\[\e[0m\] \W\[\e[1;32m\]\$(get_git_branch)\[\e[1;37m\]\$(get_git_changes)\[\e[0m\]]\$ "
 
 # ========== #
 # GIT TWEAKS #

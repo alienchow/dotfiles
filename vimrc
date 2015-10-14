@@ -8,6 +8,8 @@ syntax enable
 set shortmess+=c
 colorscheme monokai
 set autoindent smartindent
+set backupdir=~/.vim/backup/
+set directory=~/.vim/backup/
 set hidden hlsearch incsearch
 set expandtab shiftwidth=2 softtabstop=2
 
