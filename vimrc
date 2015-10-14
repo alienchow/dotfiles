@@ -1,16 +1,32 @@
 " ==================== "
 " DEFAULT VIM SETTINGS "
 " ==================== "
+set nu
+set rnu
+set list
 syntax enable
-set relativenumber
-set number
+set shortmess+=c
 colorscheme monokai
+set autoindent smartindent
+set hidden hlsearch incsearch
+set expandtab shiftwidth=2 softtabstop=2
+
+" ====== "
+" MACROS "
+" ====== "
+let s:count = 0
+function! EchoCR()
+  let s:count += 1
+  echomsg 'pressed <CR>; count = '.s:count
+  return "\<CR>"
+endfunction
+inoremap <expr> <cr> EchoCR()
 
 " ============ "
 " VUNDLE SETUP "
 " ============ "
 filetype off
-set nocompatible
+set nocompatible noshowmode
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
@@ -26,28 +42,12 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/AutoTag'
+Plugin 'vim-scripts/taglist.vim'
 " ------------------- "
 
 call vundle#end()
 filetype plugin indent on
-
-" ===================== "
-" Plugin Configurations "
-" ===================== "
-autocmd VimEnter * NERDTree | wincmd p " NERDTree autoload and cursor to text file
-
-" ========================= "
-" VIM CURSOR CONFIGURATIONS "
-" ========================= "
-if exists('$TMUX')
-	let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-	let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-	let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-	let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
-
 " ============  "
 " KEY MAPPINGS "
 " ============  "
@@ -71,9 +71,39 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-" ==================== "
-" NEOCOMPLETE SETTINGS "
-" ==================== "
+" =============== "
+" PLUGIN SETTINGS "
+" =============== "
+" ----------- "
+" Neocomplete "
+" ----------- "
+set runtimepath+=$HOME/neocomplete.vim
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#enable_refresh_always = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplete#close_popup() . "\<CR>"
+endfunction
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+
+" ---------- "
+"  Syntastic "
+"  --------- "
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" -------- "
+" NERDTree "
+" -------- "
+autocmd VimEnter * NERDTree | wincmd p " NERDTree autoload and cursor to text file
