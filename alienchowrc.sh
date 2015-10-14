@@ -1,9 +1,34 @@
 #!/usr/bin/env bash
 
+# ===================== #
+# ENVIRONMENT VARIABLES #
+# ===================== #
+export GOPATH="$HOME/go"
+export GOROOT="/usr/local/go"
+export GOTOOLDIR="/usr/local/go/pkg/tool/darwin_amd64"
+export GOROOT_BOOTSTRAP="/usr/local/go1.4.2"
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+export DOTFILE_PATH="/usr/local/dotfiles"
+
 # =============== #
 # Update dotfiles #
 # =============== #
-alias updot="pushd /usr/local/dotfiles > /dev/null 2>&1 && git pull origin master && popd > /dev/null 2>&1"
+updot_func() {
+  if [[ -z "$DOTFILE_PATH" ]]; then
+    echo "DOTFILE_PATH environment variable not set!"
+    return
+  fi
+
+  if [[ ! -d "$DOTFILE_PATH" ]]; then
+    echo "$DOTFILE_PATH does not exist!"
+    return
+  fi
+
+  pushd $DOTFILE_PATH
+  git pull origin master
+  popd
+}
+alias updot="updot_func > /dev/null 2>&1 && echo 'Updated to latest dotfiles.'"
 
 # ======= #
 # Hotkeys #
@@ -34,12 +59,3 @@ git config --global alias.co checkout
 git config --global alias.br branch
 git config --global alias.ci commit
 git config --global alias.st status
-
-# ===================== #
-# ENVIRONMENT VARIABLES #
-# ===================== #
-export GOPATH="$HOME/go"
-export GOROOT="/usr/local/go"
-export GOTOOLDIR="/usr/local/go/pkg/tool/darwin_amd64"
-export GOROOT_BOOTSTRAP="/usr/local/go1.4.2"
-export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
