@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# =============== #
+# Update dotfiles #
+# =============== #
+alias updot="pushd /usr/local/dotfiles > /dev/null 2>&1 && git pull origin master && popd > /dev/null 2>&1"
+
 # ======= #
 # Hotkeys #
 # ======= #
