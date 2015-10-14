@@ -19,7 +19,7 @@ get_git_changes() {
 	if [[ -n "$CHANGES" ]]; then echo "*"; fi
 }
 
-export PS1="[\[\e[31m\]\u\[\e[m\]@\[\e[1;31m\]\h\[\e[m\]:\W]\[\e[1;32m\]\$(get_git_branch)\[\e[1;37m\]\$(get_git_changes)\[\e[1;32m\]\[\e[m\]$ "
+export PS1="[\[\e[36m\]\u\[\e[0m\]@\[\e[31m\]\h\[\e[0m\] \W\[\e[1;32m\] $(get_git_branch)\[\e[1;37m\]\$(get_git_changes)\[\e[0m\]]\$ "
 
 # ========== #
 # GIT TWEAKS #
