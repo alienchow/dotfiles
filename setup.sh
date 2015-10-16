@@ -17,7 +17,7 @@ rm -rf $VIMHOME/colors
 
 ## SETUP RC FILES
 # Bash
-if [[ -z "$(echo $BASHRC | grep alienchowrc)" ]]; then
+if [[ -z "$(cat $BASHRC | grep alienchowrc)" ]]; then
   echo -e "\n# MY RC FILE\n. $DOTFILES/alienchowrc.sh" >> $BASHRC
 fi
 
@@ -35,3 +35,6 @@ vim -S "$DOTFILES/vim_setup.vim"
 
 # Git
 ln -s "$DOTFILES/gitignore" "$HOME/.gitignore"
+
+# Ctags
+ln -s "$DOTFILES/ctags" "$HOME/.ctags"
