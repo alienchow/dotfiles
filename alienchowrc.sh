@@ -8,7 +8,7 @@ export GOROOT="/usr/local/go"
 export GOTOOLDIR="/usr/local/go/pkg/tool/darwin_amd64"
 export GOROOT_BOOTSTRAP="/usr/local/go1.4.2"
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
-export DOTFILE_PATH="/usr/local/dotfiles"
+export DOTFILE_PATH="$HOME/dotfiles"
 
 # =============== #
 # Update dotfiles #
@@ -54,7 +54,7 @@ export PS1="[\[\e[36m\]\u\[\e[0m\]@\[\e[31m\]\h\[\e[0m\] \W\[\e[1;32m\]\$(get_gi
 # ========== #
 # GIT TWEAKS #
 # ========== #
-git config --global core.excludesfile '~/.gitignore'
+git config --global core.excludesfile "$HOME/.gitignore"
 git config --global alias.co checkout
 git config --global alias.br branch
 git config --global alias.ci commit
