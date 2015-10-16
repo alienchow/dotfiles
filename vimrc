@@ -8,6 +8,7 @@ syntax enable
 set shortmess+=c
 colorscheme monokai
 set autoindent smartindent
+set cursorline cursorcolumn
 set backupdir=~/.vim/backup/
 set directory=~/.vim/backup/
 set hidden hlsearch incsearch
