@@ -24,11 +24,11 @@ updot_func() {
     return
   fi
 
-  pushd $DOTFILE_PATH
-  git pull origin master
-  popd
+  pushd $DOTFILE_PATH > /dev/null
+  git pull origin master > /dev/null 2>&1
+  popd > /dev/null
 }
-alias updot="updot_func > /dev/null 2>&1 && echo 'Updated to latest dotfiles.'"
+alias updot="updot_func && echo 'Updated to latest dotfiles.'"
 
 # ======= #
 # Hotkeys #
