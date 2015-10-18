@@ -3,12 +3,12 @@
 # ===================== #
 # ENVIRONMENT VARIABLES #
 # ===================== #
-export GOPATH="~/go"
+export GOPATH=~/go
 export GOROOT="/usr/local/go"
 export GOTOOLDIR="/usr/local/go/pkg/tool/darwin_amd64"
 export GOROOT_BOOTSTRAP="/usr/local/go1.4.2"
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
-export DOTFILE_PATH="~/dotfiles"
+export DOTFILE_PATH=~/dotfiles
 
 # =============== #
 # Update dotfiles #

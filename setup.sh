@@ -2,11 +2,11 @@
 
 ## INIT GLOBAL ENVIRONMENT VARIABLES
 export DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-export VIMHOME="~/.vim"
+export VIMHOME=~/.vim
 if [[ "$(uname)" == "Darwin" ]]; then
-  export BASHRC="~/.bash_profile"
+  export BASHRC=~/.bash_profile
 else
-  export BASHRC="~/.bashrc"
+  export BASHRC=~/.bashrc
 fi
 
 ## INIT DIRECTORIES
@@ -22,7 +22,7 @@ if [[ -z "$(cat $BASHRC | grep alienchowrc)" ]]; then
 fi
 
 # Vim
-ln -s "$DOTFILES/vimrc" "~/.vimrc"
+ln -s "$DOTFILES/vimrc" ~/.vimrc
 
 ## SETUP CONFIG FILES
 # Vim
@@ -34,16 +34,7 @@ fi
 vim -S "$DOTFILES/vim_setup.vim"
 
 # Git
-ln -s "$DOTFILES/gitignore" "~/.gitignore"
+ln -s "$DOTFILES/gitignore" ~/.gitignore
 
 # Ctags
-ln -s "$DOTFILES/ctags" "~/.ctags"
-
-## SETUP ZSH
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-if [[ -z "$(cat ~/.zshrc | grep alienchowrc)" ]]; then
-  echo -e "\n# MY RC FILE\n. $DOTFILES/alienchowrc.sh" >> ~/.zshrc
-fi
-
-
+ln -s "$DOTFILES/ctags" ~/.ctags
