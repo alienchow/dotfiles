@@ -24,12 +24,6 @@ if [[ -z "$(cat $BASHRC | grep alienchowrc)" ]]; then
   echo -e "\n# MY RC FILE\n. $DOTFILES/alienchowrc.sh" >> $BASHRC
 fi
 
-# Zsh
-export ZSHRC=~/.zshrc
-if [[ -z "$(cat "$ZSHRC" | grep alienchowrc)" ]]; then
-  echo -e "\n# MY RC FILE\n. $DOTFILES/alienchowrc.sh" >> ~/.zshrc
-fi
-
 # Vim
 ln -s "$DOTFILES/vimrc" ~/.vimrc
 
