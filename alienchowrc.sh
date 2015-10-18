@@ -3,12 +3,12 @@
 # ===================== #
 # ENVIRONMENT VARIABLES #
 # ===================== #
-export GOPATH="$HOME/go"
+export GOPATH="~/go"
 export GOROOT="/usr/local/go"
 export GOTOOLDIR="/usr/local/go/pkg/tool/darwin_amd64"
 export GOROOT_BOOTSTRAP="/usr/local/go1.4.2"
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
-export DOTFILE_PATH="$HOME/dotfiles"
+export DOTFILE_PATH="~/dotfiles"
 
 # =============== #
 # Update dotfiles #
@@ -56,7 +56,7 @@ fi
 # ========== #
 # GIT TWEAKS #
 # ========== #
-git config --global core.excludesfile "$HOME/.gitignore"
+git config --global core.excludesfile ~/.gitignore
 git config --global alias.co checkout
 git config --global alias.br branch
 git config --global alias.ci commit
