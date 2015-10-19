@@ -6,7 +6,7 @@ set rnu
 set list
 syntax enable
 set shortmess+=c
-colorscheme monokai
+colorscheme lucid
 set autoindent smartindent
 set cursorline cursorcolumn
 set backupdir=~/.vim/backup/
