@@ -13,6 +13,8 @@ set backupdir=~/.vim/backup/
 set directory=~/.vim/backup/
 set hidden hlsearch incsearch
 set expandtab shiftwidth=2 softtabstop=2
+set colorcolumn=80
+highlight ColorColumn ctermbg=0
 
 " ====== "
 " MACROS "
@@ -112,6 +114,7 @@ let g:syntastic_check_on_wq = 0
 " NERDTree "
 " -------- "
 autocmd VimEnter * NERDTree | wincmd p " NERDTree autoload and cursor to text file
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " ----- "
 " CtrlP "
